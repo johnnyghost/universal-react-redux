@@ -15,5 +15,5 @@ npm-debug.log*
 # Yarn
 .yarn
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage
