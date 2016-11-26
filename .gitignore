@@ -1,0 +1,19 @@
+# Ignore Mac DS_Store files
+.DS_Store
+
+# Dependency directories
+node_modules
+
+# Distribution folder
+dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Yarn
+.yarn
+
+# Coverage directory used by tools like istanbul
+coverage
