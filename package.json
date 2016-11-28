@@ -8,7 +8,7 @@
     "type": "git"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --progress",
+    "start": "./node_modules/.bin/webpack-dev-server --progress --config ./configs/webpack/webpack.config.js",
     "clean": "node_modules/.bin/rimraf dist",
     "lint": "./node_modules/.bin/eslint --config .eslintrc src",
     "pre-build": "npm run clean && npm run lint",

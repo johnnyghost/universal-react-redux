@@ -2,6 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-  <div>ola</div>,
+  <h1>ola</h1>,
   document.getElementById('root')
 );
