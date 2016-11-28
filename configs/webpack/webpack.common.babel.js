@@ -4,9 +4,9 @@ const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'dev';
 
 const PATHS = {
-  SOURCE: path.join(__dirname, '/src/'),
-  APP: path.join(__dirname, 'src/app'),
-  DIST: path.join(__dirname, '/dist')
+  SOURCE: path.resolve(process.cwd(), 'src'),
+  NODE_MODULES: path.resolve(process.cwd(), 'node_modules'),
+  DIST: path.resolve(process.cwd(), 'dist')
 };
 
 const env = {
@@ -19,8 +19,8 @@ const env = {
 module.exports = {
   entry: [
     'babel-polyfill',
-    PATHS.SOURCE + 'client.js',
-    PATHS.SOURCE + 'assets/styles/style.css'
+    path.resolve(PATHS.SOURCE, 'client.js'),
+    path.resolve(PATHS.SOURCE, 'assets/styles/style.css')
   ],
 
   output: {
@@ -49,7 +49,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    modules: ['src', 'node_modules']
+    modules: [PATHS.SOURCE, PATHS.NODE_MODULES]
   },
   module: {
     loaders: [
