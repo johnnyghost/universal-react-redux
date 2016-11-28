@@ -1,0 +1,70 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "classes": true,
+      "jsx": true,
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+    "react",
+    "flowtype"
+  ],
+  "rules": {
+    "no-console": 0,
+    "new-cap": 0,
+    "strict": 0,
+    "no-undef": 0,
+    "indent": ["error", 2],
+    "no-debugger":0,
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "eol-last": 0,
+    "quotes": [2, "single"],
+    "jsx-quotes": 1,
+    "react/jsx-no-undef": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/jsx-closing-bracket-location": ['error', 'line-aligned'],
+    "react/sort-comp": ['error', {
+      order: [
+        'props',
+        'static-methods',
+        'lifecycle',
+        '/^on.+$/',
+        '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
+        'everything-else',
+        '/^render.+$/',
+        'render'
+      ],
+    }],
+    "flowtype/require-parameter-type": 1,
+    "flowtype/require-return-type": [1, "always", {
+      "annotateUndefined": "never"
+      }
+    ],
+    "flowtype/space-before-type-colon": [ 1, "never"],
+    "flowtype/type-id-match": [ 1, "^([A-Z][a-z0-9]+)+Type$"],
+    "valid-jsdoc": ["error", {
+      "requireReturn": false,
+      "requireReturnType": false,
+      "requireParamDescription": true,
+      "requireReturnDescription": false
+    }],
+    "require-jsdoc": ["error", {
+        "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": false
+        }
+    }]
+  }
+}
