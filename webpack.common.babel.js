@@ -34,7 +34,19 @@ module.exports = {
       __STAGING__: env.staging,
       __PRODUCTION__: env.production,
       __CURRENT_ENV__: '\'' + (NODE_ENV) + '\''
-    })
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          require('postcss-easy-import')({
+            addDependencyTo: webpack,
+            prefix: '_'
+          }),
+          require('precss'),
+          require('autoprefixer')
+        ]
+      }
+    }),
   ],
   resolve: {
     modules: ['src', 'node_modules']
@@ -69,7 +81,7 @@ module.exports = {
           'file?hash=sha512&digest=hex&name=app/assets/png/[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
-      }
+      },
     ]
   }
 };

@@ -3692,9 +3692,9 @@ postcss-import@^8.0.1:
   optionalDependencies:
     pkg-resolve "^0.1.7"
 
-postcss-import@8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-8.0.2.tgz#59cf54d92cfd25ea96a82ee1e404acad6196fc22"
+postcss-import@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-8.1.0.tgz#4027f5f37c20b3953c7b30f9a8bfeec20a3cc14c"
   dependencies:
     object-assign "^4.0.1"
     postcss "^5.0.14"
@@ -4215,8 +4215,8 @@ readline2@^1.0.1:
     mute-stream "0.0.5"
 
 recast@~0.11.12:
-  version "0.11.17"
-  resolved "https://registry.yarnpkg.com/recast/-/recast-0.11.17.tgz#67e829df49ef8ea822381cc516d305411e60bad8"
+  version "0.11.18"
+  resolved "https://registry.yarnpkg.com/recast/-/recast-0.11.18.tgz#07af6257ca769868815209401d4d60eef1b5b947"
   dependencies:
     ast-types "0.9.2"
     esprima "~3.1.0"
