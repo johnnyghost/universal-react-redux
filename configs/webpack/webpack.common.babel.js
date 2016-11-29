@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
-
 const PATHS = {
   SOURCE: path.resolve(process.cwd(), 'src'),
   NODE_MODULES: path.resolve(process.cwd(), 'node_modules'),
@@ -51,7 +50,7 @@ module.exports = {
   resolve: {
     modules: [PATHS.SOURCE, PATHS.NODE_MODULES],
     alias: {
-      config: `${PATHS.SOURCE}/config/config.${NODE_ENV}.js`
+      config: `${PATHS.SOURCE}/config/${NODE_ENV}/index.js`
     }
   },
   module: {
