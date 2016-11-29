@@ -12,9 +12,9 @@
     "clean": "node_modules/.bin/rimraf dist",
     "lint": "./node_modules/.bin/eslint --config .eslintrc src",
     "pre-build": "npm run clean && npm run lint",
-    "build:production": "npm run pre-build && NODE_ENV=prod webpack -p --progress --colors",
-    "build:staging": "npm run pre-build && NODE_ENV=staging webpack --progress --colors",
-    "build:development": "npm run pre-build && NODE_ENV=dev webpack --progress --colors",
+    "build:production": "npm run pre-build && NODE_ENV=prod webpack --progress --colors --config ./configs/webpack/webpack.config.js",
+    "build:staging": "npm run pre-build && NODE_ENV=staging webpack --progress --colors --config ./configs/webpack/webpack.config.js",
+    "build:development": "npm run pre-build && NODE_ENV=dev webpack --progress --colors --config ./configs/webpack/webpack.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
