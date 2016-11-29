@@ -1,6 +1,6 @@
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const commonConfig            = require('./webpack.common.babel.js');
+const commonConfig      = require('./webpack.common.babel.js');
 
 const devConfig = {
   entry: commonConfig.entry.concat([
