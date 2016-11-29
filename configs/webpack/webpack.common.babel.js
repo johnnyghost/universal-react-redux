@@ -38,7 +38,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [
-          require('postcss-easy-import')({
+          require('postcss-import')({
             addDependencyTo: webpack,
             prefix: '_'
           }),
@@ -49,7 +49,10 @@ module.exports = {
     }),
   ],
   resolve: {
-    modules: [PATHS.SOURCE, PATHS.NODE_MODULES]
+    modules: [PATHS.SOURCE, PATHS.NODE_MODULES],
+    alias: {
+      config: `${PATHS.SOURCE}/config/config.${NODE_ENV}.js`
+    }
   },
   module: {
     loaders: [
