@@ -4,12 +4,13 @@ const Root = () => {
   return (
     <div>
       <h1>test</h1>
-      <button onClick= {() => {
-        alert(1);
+      <button onClick={()=> {
+        alert()
       }}
-      >click</button>
+      ></button>
     </div>
   )
+
 }
 
 export default Root;

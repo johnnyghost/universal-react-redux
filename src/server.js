@@ -1,15 +1,19 @@
-import express from 'express';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import Root from './components/Root';
+import Root from 'components/Root';
+import { renderToString } from 'react-dom/server';
 
-const app = express();
+const createScriptTags = () => {
+  return '<script src="/server.js"></script>';
+};
 
-app.get('/', (request, response) => {
-  const html = ReactDOMServer.renderToString(<Root />);
-  response.send(html);
-})
+const buildPage = (componentHTML) => {
+  return `<!doctype html> <html> <head></head><body><div id="app">${componentHTML}</div>${createScriptTags()}</body></html>`;
+};
 
-app.listen(3000, () => {
-  console.log('-> run ');
-})
+export default function render(req, res) {
+
+  const component = renderToString(<Root />);
+  const html = buildPage(component)
+
+  res.send(html);
+}

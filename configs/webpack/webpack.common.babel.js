@@ -1,12 +1,7 @@
-const path = require('path');
 const webpack = require('webpack');
+const PATHS = require('./constants').PATHS;
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
-const PATHS = {
-  SOURCE: path.resolve(process.cwd(), 'src'),
-  NODE_MODULES: path.resolve(process.cwd(), 'node_modules'),
-  DIST: path.resolve(process.cwd(), 'dist')
-};
 
 const env = {
   production: NODE_ENV === 'prod',
@@ -16,17 +11,6 @@ const env = {
 };
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    path.resolve(PATHS.SOURCE, 'client.js'),
-    path.resolve(PATHS.SOURCE, 'assets/styles/style.css')
-  ],
-
-  output: {
-    path: PATHS.DIST,
-    filename: 'bundle.js'
-  },
-
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: env.development,
@@ -59,6 +43,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         test: /\.css$/,
