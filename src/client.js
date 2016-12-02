@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { auth } from 'config';
+import Root from './components/Root';
 
 ReactDOM.render(
-  <h1>{auth.AUTH_TOKEN_KEY}</h1>,
+  <Root />,
   document.getElementById('root')
 );
