@@ -6,9 +6,7 @@ const PATHS             = require('./constants').PATHS;
 const devServerConfig = {
   target: 'node',
   entry: [
-    // 'babel-polyfill',
-    path.resolve(PATHS.SOURCE, 'server.js'),
-    // path.resolve(PATHS.SOURCE, 'assets/styles/style.css')
+    path.resolve(PATHS.SOURCE, 'server.js')
   ],
   output: {
     path: PATHS.DIST,
@@ -18,7 +16,6 @@ const devServerConfig = {
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: commonConfig.plugins.concat([
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ])
 }

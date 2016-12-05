@@ -1,7 +1,7 @@
 {
     "verbose": false,
     "watch": [
-      "src",
+      "src/server",
       "server"
     ],
     "exec": "npm run build:development && npm run babel-node -- server/index.js"

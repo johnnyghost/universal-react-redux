@@ -8,9 +8,7 @@ const devClientConfig = {
   entry: [
     'babel-polyfill',
     path.resolve(PATHS.SOURCE, 'client.js'),
-    path.resolve(PATHS.SOURCE, 'assets/styles/style.css'),
-    'webpack-dev-server/client?http://localhost:3000/',
-    'webpack/hot/only-dev-server'
+    path.resolve(PATHS.SOURCE, 'assets/styles/style.css')
   ],
   output: {
     path: PATHS.DIST,
@@ -27,7 +25,6 @@ const devClientConfig = {
     }
   },
   plugins: commonConfig.plugins.concat([
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
