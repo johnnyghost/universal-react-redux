@@ -2,6 +2,7 @@
     "verbose": false,
     "watch": [
       "src/server",
+      "configs/webpack",
       "server"
     ],
     "exec": "npm run build:development && npm run babel-node -- server/index.js"

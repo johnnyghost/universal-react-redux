@@ -32,7 +32,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    modules: [PATHS.SOURCE, PATHS.NODE_MODULES],
+    modules: [PATHS.SOURCE, PATHS.NODE_MODULES, `${PATHS.SOURCE}/shared`],
     alias: {
       config: `${PATHS.SOURCE}/config/${NODE_ENV}/index.js`
     }

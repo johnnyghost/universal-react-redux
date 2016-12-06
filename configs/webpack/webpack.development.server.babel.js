@@ -6,7 +6,7 @@ const PATHS             = require('./constants').PATHS;
 const devServerConfig = {
   target: 'node',
   entry: [
-    path.resolve(PATHS.SOURCE, 'server.js')
+    path.resolve(PATHS.SOURCE, 'server/index.js')
   ],
   output: {
     path: PATHS.DIST,

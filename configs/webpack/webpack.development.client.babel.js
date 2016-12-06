@@ -1,14 +1,13 @@
 const path              = require('path');
 const webpack           = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig      = require('./webpack.common.babel.js');
 const PATHS             = require('./constants').PATHS;
 
 const devClientConfig = {
   entry: [
     'babel-polyfill',
-    path.resolve(PATHS.SOURCE, 'client.js'),
-    path.resolve(PATHS.SOURCE, 'assets/styles/style.css')
+    path.resolve(PATHS.SOURCE, 'client/index.js'),
+    path.resolve(PATHS.SOURCE, 'shared/assets/styles/style.css')
   ],
   output: {
     path: PATHS.DIST,
@@ -25,11 +24,7 @@ const devClientConfig = {
     }
   },
   plugins: commonConfig.plugins.concat([
-    new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: 'public/index.html'
-    })
+    new webpack.NoErrorsPlugin()
   ])
 }
 
