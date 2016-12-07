@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Root = () => {
+const Root = ():Object => {
   return (
     <div>
       <h1>test</h1>

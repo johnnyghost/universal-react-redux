@@ -3,21 +3,24 @@ import Root from 'components/Root';
 import { renderToString } from 'react-dom/server';
 
 /**
- * [createScriptTags description]
+ * Create the script tags, for the page.
+ *
  * @method createScriptTags
- * @return {[type]}         [description]
+ * @return {String}
  */
-const createScriptTags = () => {
+const createScriptTags = ():string => {
   return '<script src="client.js"></script>';
 };
 
 /**
- * [buildPage description]
+ * Build the html page.
+ *
  * @method buildPage
- * @param  {[type]}  componentHTML [description]
- * @return {[type]}                [description]
+ *
+ * @param  {String} componentHTML The component
+ * @return {String}
  */
-const buildPage = (componentHTML) => {
+const buildPage = (componentHTML:string):string => {
   return `
   <!doctype html>
     <head></head>
@@ -33,12 +36,13 @@ const buildPage = (componentHTML) => {
 /**
  * Render.
  *
- * @param {Object}
+ * @param {Object} request The request object
+ * @param {Object} response The reponse object
  */
-export default function (request, response) {
+export default function (request:Object, response:Object) {
 
   const component = renderToString(<Root />);
   const html = buildPage(component)
 
-  res.send(html);
+  response.send(html);
 }
