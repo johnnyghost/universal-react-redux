@@ -1,17 +1,18 @@
+const path              = require('path');
 const webpack           = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig      = require('./webpack.common.babel.js');
+const PATHS             = require('./constants').PATHS;
 
 const prodConfig = {
   entry: [
-    'babel-polyfill',
-    path.resolve(PATHS.SOURCE, 'client/index.js'),
-    path.resolve(PATHS.SOURCE, 'shared/assets/styles/style.css')
+    path.resolve(PATHS.SOURCE, 'server/index.js')
   ],
-  output: Object.assign(commonConfig.output, {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
-  }),
+  output: {
+    path: PATHS.DIST,
+    publicPath: '/',
+    filename: 'server.js',
+    libraryTarget: 'commonjs2'
+  },
   devtool: 'source-map',
   plugins: commonConfig.plugins.concat([
     new webpack.optimize.OccurrenceOrderPlugin(true),
@@ -34,23 +35,6 @@ const prodConfig = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      isProduction: true,
-      template: 'public/index.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
       }
     })
   ])
