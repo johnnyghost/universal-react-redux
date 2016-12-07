@@ -40,5 +40,4 @@ const prodConfig = {
   ])
 }
 
-
 module.exports = Object.assign(commonConfig, prodConfig);
