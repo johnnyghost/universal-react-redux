@@ -5,5 +5,5 @@
       "configs/webpack",
       "server"
     ],
-    "exec": "npm run build:production && npm run babel-node -- server/index.js"
+    "exec": "npm run build:development && npm run babel-node -- server/index.js"
 }

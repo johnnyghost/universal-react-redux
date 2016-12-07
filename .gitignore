@@ -17,3 +17,6 @@ npm-debug.log*
 
 # Coverage directory
 coverage
+
+# Tasks
+.imdone
