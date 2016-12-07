@@ -3,6 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig      = require('./webpack.common.babel.js');
 
 const prodConfig = {
+  entry: [
+    'babel-polyfill',
+    path.resolve(PATHS.SOURCE, 'client/index.js'),
+    path.resolve(PATHS.SOURCE, 'shared/assets/styles/style.css')
+  ],
   output: Object.assign(commonConfig.output, {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
