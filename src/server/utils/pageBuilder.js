@@ -1,11 +1,15 @@
+import manifest from 'manifest';
+
 /**
  * Create the script tags, for the page.
  *
  * @method createScriptTags
  * @return {String}
  */
-const createScriptTags = ():string => {
-  return '<script src="client.js"></script>';
+const createScriptTags = ():void => {
+  return Object.keys(manifest).map((key:string):string => {
+    return `<script src=${manifest[key]}></script>`;
+  });
 };
 
 /**

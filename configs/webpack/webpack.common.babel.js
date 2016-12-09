@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const PATHS = require('./constants').PATHS;
+const PATHS   = require('./constants').PATHS;
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
 
@@ -29,12 +29,13 @@ module.exports = {
           require('autoprefixer')
         ]
       }
-    }),
+    })
   ],
   resolve: {
     modules: [PATHS.SOURCE, PATHS.NODE_MODULES, `${PATHS.SOURCE}/shared`],
     alias: {
-      config: `${PATHS.SOURCE}/config/${NODE_ENV}/index.js`
+      config: `${PATHS.SOURCE}/config/${NODE_ENV}/index.js`,
+      manifest: `${PATHS.DIST}/manifest.json`
     }
   },
   module: {

@@ -13,7 +13,8 @@ const devClientConfig = {
   ],
   output: {
     path: PATHS.DIST,
-    filename: 'client.js'
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   devtool: 'cheap-module-eval-source-map',
 
