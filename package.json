@@ -20,9 +20,9 @@
     "build:client": "webpack --progress --colors --config ./configs/webpack/client/webpack.config",
     "build:server": "webpack --progress --colors --config ./configs/webpack/server/webpack.config",
 
-    "build:development": "NODE_ENV=dev && npm run build:client && npm run build:server",
-    "build:production": "NODE_ENV=prod npm run pre-build && npm run build:client && npm run build:server",
-    "build:staging": "NODE_ENV=staging npm run pre-build && NODE_ENV=staging webpack --progress --colors --config ./configs/webpack/server/webpack.config",
+    "build:development": "NODE_ENV=dev npm run build:client && NODE_ENV=dev npm run build:server",
+    "build:production": "npm run pre-build && NODE_ENV=prod npm run build:client && NODE_ENV=prod npm run build:server",
+    "build:staging": "npm run pre-build && NODE_ENV=staging npm run build:client && NODE_ENV=staging npm run build:server",
 
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
