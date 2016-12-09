@@ -9,9 +9,10 @@
   },
   "scripts": {
     "clean": "./node_modules/.bin/rimraf dist",
-    "babel-node": "babel-node --presets es2015,stage-0 --ignore node_modules,dist",
     "lint": "./node_modules/.bin/eslint --config .eslintrc src",
     "pre-build": "npm run clean && npm run lint",
+    "babel-node": "babel-node --presets es2015,stage-0 --ignore node_modules,dist",
+
     "start": "NODE_ENV=prod npm run build:production && NODE_ENV=prod npm run babel-node -- server/index.js",
 
     "watch:client": "npm run clean && ./node_modules/.bin/webpack-dev-server --progress --config ./configs/webpack/./webpack.development.client.babel.js",
