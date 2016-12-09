@@ -1,6 +1,7 @@
 const path                = require('path');
 const webpack             = require('webpack');
 const ManifestPlugin      = require('webpack-manifest-plugin');
+const ProgressBarPlugin   = require('progress-bar-webpack-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const commonConfig        = require('./../webpack.common.babel.js');
 const PATHS               = require('./../constants').PATHS;
@@ -18,6 +19,7 @@ const devClientConfig = {
   devtool: 'cheap-module-eval-source-map',
 
   plugins: commonConfig.plugins.concat([
+    new ProgressBarPlugin(),
     new webpack.NoErrorsPlugin(),
     new ManifestPlugin(),
     new ChunkManifestPlugin({

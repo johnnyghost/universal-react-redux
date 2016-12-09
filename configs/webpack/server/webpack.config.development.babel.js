@@ -1,5 +1,6 @@
 const path              = require('path');
 const webpack           = require('webpack');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const commonConfig      = require('./../webpack.common.babel.js');
 const PATHS             = require('./../constants').PATHS;
 
@@ -16,6 +17,7 @@ const devServerConfig = {
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: commonConfig.plugins.concat([
+    new ProgressBarPlugin(),
     new webpack.NoErrorsPlugin()
   ])
 }

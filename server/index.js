@@ -12,6 +12,8 @@ if (ENV === 'dev') {
 
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
+    colors: true,
+    progress: true,
     publicPath: webpackDevConfig.output.publicPath
   }));
 
