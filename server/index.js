@@ -7,6 +7,7 @@ const App = require('../dist/server');
 const app = express();
 
 if (ENV === 'development') {
+  console.log(111);
   const webpackDevConfig = require('../configs/webpack/webpack.development.client.babel');
   const compiler = webpack(webpackDevConfig);
 

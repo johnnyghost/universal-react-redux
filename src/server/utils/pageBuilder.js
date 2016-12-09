@@ -6,7 +6,7 @@ import manifest from 'manifest';
  * @method createScriptTags
  * @return {String}
  */
-const createScriptTags = ():void => {
+const createScriptTags = ():Array => {
   return Object.keys(manifest).map((key:string):string => {
     return `<script src=${manifest[key]}></script>`;
   });
