@@ -1,7 +1,7 @@
 const path         = require('path');
 const webpack      = require('webpack');
-const commonConfig = require('./webpack.common.babel.js');
-const PATHS        = require('./constants').PATHS;
+const commonConfig = require('./../webpack.common.babel.js');
+const PATHS        = require('./../constants').PATHS;
 
 const prodConfig = {
   entry: [

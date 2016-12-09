@@ -2,8 +2,8 @@ const path                = require('path');
 const webpack             = require('webpack');
 const ManifestPlugin      = require('webpack-manifest-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-const commonConfig        = require('./webpack.common.babel.js');
-const PATHS               = require('./constants').PATHS;
+const commonConfig        = require('./../webpack.common.babel.js');
+const PATHS               = require('./../constants').PATHS;
 
 const devClientConfig = {
   entry: [

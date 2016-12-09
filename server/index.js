@@ -6,9 +6,8 @@ import { ENV } from './configs';
 const App = require('../dist/server');
 const app = express();
 
-if (ENV === 'development') {
-  console.log(111);
-  const webpackDevConfig = require('../configs/webpack/webpack.development.client.babel');
+if (ENV === 'dev') {
+  const webpackDevConfig = require('../configs/webpack/client/webpack.config.development.babel');
   const compiler = webpack(webpackDevConfig);
 
   app.use(require('webpack-dev-middleware')(compiler, {
