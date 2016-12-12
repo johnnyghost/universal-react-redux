@@ -16,7 +16,7 @@ const devClientConfig = {
     path: PATHS.DIST,
     filename: 'client.js'
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
 
   plugins: commonConfig.plugins.concat([
     new ProgressBarPlugin(),
