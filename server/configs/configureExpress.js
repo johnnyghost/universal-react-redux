@@ -1,9 +1,8 @@
 import path from 'path';
 import express from 'express';
 import gzip from 'compression';
+import App from './../../dist/server';
 import { ENV } from './../utils/environment';
-
-const App = require('../../dist/server');
 
 /**
  * Configure express.
@@ -20,7 +19,7 @@ const configureExpress = (app:Object) => {
   app.set('port', (process.env.PORT || 3000));
   app.use(express.static(path.join(__dirname, '..', 'dist')));
 
-  app.get('*', App.default);
+  app.get('*', App);
 }
 
 export default configureExpress;
