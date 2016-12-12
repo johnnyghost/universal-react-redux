@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+type MainType = {
+  children: Object
+};
 
 /**
  * <Main />
+ * This component is the main component,
+ * and responsible for render all the children components.
+ * So all the common components, should be placed in here.
+ *
+ * @returns {JSXElement}
  */
-class Main extends Component {
-
-
-  /**
-   * Render <Main/>
-   *
-   * @return {JSXElement}
-   */
-  render():Object {
-
-    return (
-      <div>
-        <section>
-          <h2>Main</h2>
-        </section>
-        { this.props.children }
-      </div>
-    );
-  }
+const Main = ({children}:MainType):Object => {
+  return (
+    <div>
+      <section>
+        <h2>Main</h2>
+      </section>
+      { children }
+    </div>
+  );
 }
 
 export default Main;
