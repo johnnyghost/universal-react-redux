@@ -1,14 +1,13 @@
 import React from 'react';
-import { RouterContext } from 'react-router';
 
 /**
- * [createApp description]
- * @method createApp
- * @param  {[type]}  props [description]
- * @return {[type]}        [description]
+ * Create server app HOC.
+ *
+ * @param {Object} props The props object
+ * @returns {JSXElement}
  */
-const createApp = (props:?Object):Object => {
-  return <RouterContext {...props} />
+const createApp = (props:Object):Function => (WrappedComponent:Object):Object => {
+  return <WrappedComponent {...props}/>
 }
 
 export default createApp;

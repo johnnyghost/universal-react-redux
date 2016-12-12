@@ -1,18 +1,12 @@
 import React from 'react';
-import routes from 'routes';
-import { Router, browserHistory } from 'react-router';
 
 /**
- * [createApp description]
- * @method createApp
- * @return {[type]}  [description]
+ * Create client app HOC.
+ *
+ * @returns {JSXElement}
  */
-const createApp = ():Object => {
-  return (
-    <Router history={browserHistory}>
-      {routes}
-    </Router>
-  )
+const createApp = ():Function => (WrappedComponent:Object):Object => {
+  return <WrappedComponent />
 }
 
 export default createApp;

@@ -2,6 +2,7 @@ import { renderToString } from 'react-dom/server';
 import { match } from 'react-router';
 import routes from 'routes';
 import createApp from './utils/createApp';
+import Root from './utils/Root';
 import { buildPage } from './utils/pageBuilder';
 
 /**
@@ -19,8 +20,7 @@ export default function (request:Object, response:Object) {
    * @param  {Object} props The props object
    */
   const renderSuccess = (props:Object) => {
-    const App = createApp(props);
-    const component = renderToString(App);
+    const component = renderToString(createApp(props)(Root));
     const html = buildPage(component)
 
     response.send(html);
