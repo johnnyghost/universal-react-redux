@@ -1,9 +1,11 @@
 {
     "verbose": false,
     "watch": [
-      "src/server",
       "configs/webpack",
-      "server"
+      "server",
+      "src/server",
+      "src/shared/routes.js",
+      "src/views/index.js"
     ],
     "exec": "npm run build:development && npm run babel-node -- server/index.js"
 }

@@ -12,19 +12,14 @@
     "lint": "./node_modules/.bin/eslint --config .eslintrc src",
     "pre-build": "npm run clean && npm run lint",
     "babel-node": "babel-node --presets es2015,stage-0 --ignore node_modules,dist",
-
     "start": "NODE_ENV=prod npm run build:prod && NODE_ENV=prod npm run babel-node -- server/index.js",
-
     "watch:client": "npm run clean && ./node_modules/.bin/webpack-dev-server --config ./configs/webpack/./webpack.development.client.babel.js",
     "watch:server": "npm run clean && NODE_ENV=dev ./node_modules/.bin/nodemon",
-
     "build:client": "webpack --colors --config ./configs/webpack/client/webpack.config",
     "build:server": "webpack --colors --config ./configs/webpack/server/webpack.config",
-
     "build:development": "NODE_ENV=dev npm run build:client && NODE_ENV=dev npm run build:server",
     "build:production": "npm run pre-build && NODE_ENV=prod npm run build:client && NODE_ENV=prod npm run build:server",
     "build:staging": "npm run pre-build && NODE_ENV=staging npm run build:client && NODE_ENV=staging npm run build:server",
-
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -43,7 +38,8 @@
   "dependencies": {
     "express": "4.14.0",
     "react": "15.4.1",
-    "react-dom": "15.4.1"
+    "react-dom": "15.4.1",
+    "react-router": "3.0.0"
   },
   "devDependencies": {
     "babel-core": "6.18.2",
@@ -70,6 +66,7 @@
     "postcss-import": "8.1.0",
     "postcss-loader": "0.11.1",
     "precss": "1.4.0",
+    "progress-bar-webpack-plugin": "1.9.0",
     "rimraf": "2.5.4",
     "style-loader": "0.13.1",
     "webpack": "2.1.0-beta.25",
