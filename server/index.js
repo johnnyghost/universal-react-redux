@@ -1,35 +1,26 @@
 import express from 'express';
-import webpack from 'webpack';
-import path from 'path';
-import { ENV } from './configs';
+import { configureExpress, configureDevServer } from './configs';
+import { ENV } from './utils/environment';
+import listenCallback from './utils/listenCallback';
 
-const App = require('../dist/server');
-const app = express();
+const app:Object = express();
 
 if (ENV === 'dev') {
-  const webpackDevConfig = require('../configs/webpack/client/webpack.config.development.babel');
-  const compiler = webpack(webpackDevConfig);
-
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    colors: true,
-    progress: true,
-    publicPath: webpackDevConfig.output.publicPath
-  }));
-
-  app.use(require('webpack-hot-middleware')(compiler));
+  /**
+   * configure the dev server
+   * with webpack configurations
+   */
+  configureDevServer(app)
 }
 
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+/**
+ * configure the express
+ * settings
+ */
+configureExpress(app);
 
-app.get('*', App.default);
-app.set('port', (process.env.PORT || 3000));
-
-app.listen(app.get('port'), () => {
-  console.log();
-  console.log('================================');
-  console.log('       Running the server       ');
-  console.log(`       Environment: ${ENV}      `);
-  console.log(`       Port: ${app.get('port')} `);
-  console.log('================================');
-})
+/**
+ * bind and listen for
+ * the connection
+ */
+app.listen(app.get('port'), listenCallback(app))

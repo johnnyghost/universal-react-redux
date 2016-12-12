@@ -36,6 +36,7 @@
   "author": "johnnyghost <kemarx@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "4.14.0",
     "react": "15.4.1",
     "react-dom": "15.4.1",

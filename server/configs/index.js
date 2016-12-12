@@ -1,5 +1,6 @@
-import { ENV } from './environment';
-
+import configureExpress from './configureExpress';
+import configureDevServer from './configureDevServer';
 export {
-  ENV
+  configureExpress,
+  configureDevServer
 }
