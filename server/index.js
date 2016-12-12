@@ -21,8 +21,15 @@ if (ENV === 'dev') {
 }
 
 app.use(express.static(path.join(__dirname, '..', 'dist')));
-app.get('*', App.default);
 
-app.listen(3000, () => {
-  console.log('-> run ');
+app.get('*', App.default);
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), () => {
+  console.log();
+  console.log('================================');
+  console.log('       Running the server       ');
+  console.log(`       Environment: ${ENV}      `);
+  console.log(`       Port: ${app.get('port')} `);
+  console.log('================================');
 })
