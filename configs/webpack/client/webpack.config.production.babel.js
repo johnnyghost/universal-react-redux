@@ -16,7 +16,7 @@ const devClientConfig = {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js'
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   plugins: commonConfig.plugins.concat([
     new webpack.NoErrorsPlugin(),
@@ -25,6 +25,20 @@ const devClientConfig = {
       filename: 'chunk-manifest.json',
       manifestVariable: 'webpackManifest'
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false
+      },
+      compress: {
+        warnings: false,
+        screw_ie8: true
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
   ])
 }
 
