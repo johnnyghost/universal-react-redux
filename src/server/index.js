@@ -1,7 +1,7 @@
 import { renderToString } from 'react-dom/server';
 import { match } from 'react-router';
-import createApp from './utils/createApp';
 import routes from 'routes';
+import createApp from './utils/createApp';
 import { buildPage } from './utils/pageBuilder';
 
 /**
@@ -12,20 +12,58 @@ import { buildPage } from './utils/pageBuilder';
  */
 export default function (request:Object, response:Object) {
 
+  /**
+   * Render the success view.
+   *
+   * @method renderSuccess
+   * @param  {Object} props The props object
+   */
+  const renderSuccess = (props:Object) => {
+    const App = createApp(props);
+    const component = renderToString(App);
+    const html = buildPage(component)
+
+    response.send(html);
+  }
+
+  /**
+   * Render redirect view
+   *
+   * @method renderRedirect
+   * @param {Object} redirect The redirect object
+   */
+  const renderRedirect = (redirect:Object) => {
+    response.redirect(302, redirect.pathname + redirect.search);
+  }
+
+  /**
+   * Render not found route.
+   *
+   * @method renderNotFound
+   */
+  const renderNotFound = () => {
+    response.sendStatus(404);
+  }
+
+  /**
+   * Render error view.
+   *
+   * @method renderError
+   * @param  {Object} err The error object
+   */
+  const renderError = (err:Object) => {
+    response.status(500).json(err);
+  }
+
   match({routes, location: request.url}, (err: ?Object, redirect: ?Object, props: ?Object) => {
     if (err) {
-      response.status(500).json(err);
+      renderError(err);
     } else if (redirect) {
-      response.redirect(302, redirect.pathname + redirect.search);
+      renderRedirect(redirect);
     } else if (props) {
-      const App = createApp(props);
-      const component = renderToString(App);
-      const html = buildPage(component)
-
-      response.send(html);
-
+      renderSuccess(props);
     } else {
-      response.sendStatus(404);
+      renderNotFound();
     }
   });
 }
