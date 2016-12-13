@@ -17,7 +17,7 @@ const configureExpress = (app:Object) => {
   }
 
   app.set('port', (process.env.PORT || 3000));
-  app.use(express.static(path.join(__dirname, '..', 'dist')));
+  app.use(express.static(path.resolve(process.cwd(), 'dist')));
 
   app.get('*', App);
 }

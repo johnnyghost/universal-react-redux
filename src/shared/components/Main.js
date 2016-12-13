@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'components';
+import { Header } from 'components';
 
 type MainType = {
   children: Object
@@ -16,7 +16,7 @@ type MainType = {
 const Main = ({children}:MainType):Object => {
   return (
     <div>
-      <Menu />
+      <Header />
       <section> { children } </section>
     </div>
   );
