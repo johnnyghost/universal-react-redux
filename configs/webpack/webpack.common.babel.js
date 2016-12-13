@@ -1,6 +1,14 @@
 const webpack = require('webpack');
 const PATHS   = require('./constants').PATHS;
 
+
+
+
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
+
 const NODE_ENV = process.env.NODE_ENV || 'dev';
 
 const env = {
@@ -12,6 +20,10 @@ const env = {
 
 module.exports = {
   plugins: [
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true
+    }),
     new webpack.DefinePlugin({
       __DEV__: env.development,
       __STAGING__: env.staging,
@@ -51,7 +63,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: ['css?modules', 'postcss']
+        })
+
       },
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,

@@ -4,6 +4,7 @@ const commonConfig = require('./../webpack.common.babel.js');
 const PATHS        = require('./../constants').PATHS;
 
 const prodConfig = {
+  target: 'node',
   entry: [
     path.resolve(PATHS.SOURCE, 'server/index.js')
   ],

@@ -10,7 +10,7 @@ if (ENV === 'dev') {
    * configure the dev server
    * with webpack configurations
    */
-  configureDevServer(app)
+  configureDevServer(app);
 }
 
 /**
