@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import styles from './menu.css';
 
 /**
  * <Menu />
@@ -8,7 +9,7 @@ import { Link } from 'react-router';
  */
 const Menu = ():Object => {
   return (
-    <ul>
+    <ul className={styles.container}>
       <li><Link to={'/home'}>home</Link></li>
       <li><Link to={'/dashboard'}>dashboard</Link></li>
     </ul>

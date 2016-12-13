@@ -1,7 +1,6 @@
 const path                = require('path');
 const webpack             = require('webpack');
 const ManifestPlugin      = require('webpack-manifest-plugin');
-const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const commonConfig        = require('./../webpack.common.babel.js');
 const PATHS               = require('./../constants').PATHS;
 
@@ -21,10 +20,6 @@ const devClientConfig = {
   plugins: commonConfig.plugins.concat([
     new webpack.NoErrorsPlugin(),
     new ManifestPlugin(),
-    new ChunkManifestPlugin({
-      filename: 'chunk-manifest.json',
-      manifestVariable: 'webpackManifest'
-    }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
