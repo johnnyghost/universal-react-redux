@@ -1,7 +1,10 @@
-import Home from './Home';
+import { loadRoute, errorLoading } from 'utils/routes';
+
 module.exports = {
   path: 'home',
   getComponents(location:?Object, cb:Function) {
-    cb(null, Home);
+    System.import('./Home')
+      .then(loadRoute(cb))
+      .catch(errorLoading)
   }
 };

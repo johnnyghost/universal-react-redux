@@ -9,7 +9,7 @@ import manifest from 'manifest';
 const createScriptTags = ():Array => {
   return Object.keys(manifest).map((key:string):string => {
     return `<script src=${manifest[key]}></script>`;
-  });
+  }).reverse();
 };
 
 /**
@@ -28,7 +28,7 @@ const buildPage = (componentHTML:string):string => {
       <div id="root">
         <div>${componentHTML}<div>
       </div>
-      ${createScriptTags()}
+      ${createScriptTags().join('')}
       </body>
     </html>`;
 };
