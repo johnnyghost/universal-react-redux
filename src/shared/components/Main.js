@@ -16,10 +16,8 @@ type MainType = {
 const Main = ({children}:MainType):Object => {
   return (
     <div>
-      <section>
-        <Menu />
-      </section>
-      { children }
+      <Menu />
+      <section> { children } </section>
     </div>
   );
 }
