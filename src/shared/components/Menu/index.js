@@ -10,8 +10,8 @@ import styles from './menu.css';
 const Menu = ():Object => {
   return (
     <ul className={styles.container}>
-      <li><Link to={'/home'}>home</Link></li>
-      <li><Link to={'/dashboard'}>dashboard</Link></li>
+      <li className={styles.item}><Link className={styles.link} to={'/home'}>Home</Link></li>
+      <li className={styles.item}><Link className={styles.link} to={'/dashboard'}>Dashboard</Link></li>
     </ul>
   )
 }

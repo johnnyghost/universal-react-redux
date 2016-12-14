@@ -1,2 +1,3 @@
-@import 'sanitize.css/sanitize.css';
+@import 'sanitize.css/sanitize';
+@import 'global';
 @import 'typography';

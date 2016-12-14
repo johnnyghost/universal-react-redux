@@ -60,10 +60,12 @@ const createStyleTags = ():string => {
  * @return {String}
  */
 const buildPage = (componentHTML:string):string => {
+
   return `
   <!doctype html>
     <head>
       ${createStyleTags()}
+      <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     </head>
     <body>
       <div id="root">

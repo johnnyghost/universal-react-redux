@@ -21,7 +21,7 @@ export default function (request:Object, response:Object) {
    */
   const renderSuccess = (props:Object) => {
     const component = renderToString(createApp(props)(Root));
-    const html = buildPage(component)
+    const html = buildPage(component);
 
     response.send(html);
   }
