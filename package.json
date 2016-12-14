@@ -44,6 +44,7 @@
     "sanitize.css": "4.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.5.4",
     "babel-core": "6.18.2",
     "babel-eslint": "7.1.1",
     "babel-loader": "6.2.8",
