@@ -10,7 +10,9 @@ import styles from './header.css';
 const Header = ():Object => {
   return (
     <header className={styles.container}>
-      <Menu />
+      <nav className={styles.sidebar}>
+        <Menu />
+      </nav>
     </header>
   )
 }
