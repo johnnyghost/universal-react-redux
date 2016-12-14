@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from 'components';
+import styles from './main.css';
 
 type MainType = {
   children: Object
@@ -16,8 +17,10 @@ type MainType = {
 const Main = ({children}:MainType):Object => {
   return (
     <div>
-      <Header />
-      <section> { children } </section>
+      <Header/>
+      <section className={styles.content}>
+        {children}
+      </section>
     </div>
   );
 }

@@ -4,13 +4,13 @@ import styles from './header.css';
 
 /**
  * <Header />
- *
  * @return {JSXElement}
  */
 const Header = ():Object => {
   return (
     <header className={styles.container}>
-      <nav className={styles.sidebar}>
+      <div className={styles.logo}>logo</div>
+      <nav className={styles.menu}>
         <Menu />
       </nav>
     </header>
