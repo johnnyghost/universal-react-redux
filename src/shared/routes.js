@@ -1,5 +1,5 @@
 import routes from 'views';
-import Main from 'components/Main';
+import { Main } from 'components';
 
 const configuration ={
   path: '/',
