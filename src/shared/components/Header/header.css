@@ -2,7 +2,7 @@
   background: #f9f9fa;
   height: 100px;
   display: flex;
-  padding: 15px;
+  
 }
 
 .logo {
@@ -15,5 +15,4 @@
   justify-content: flex-end;
   align-items: center;
   flex: 1;
-  height: 100%;
 }

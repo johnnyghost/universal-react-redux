@@ -1,6 +1,9 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 import { Header } from 'components';
 import styles from './main.css';
+
+const cx = classNames.bind(styles);
 
 type MainType = {
   children: Object
@@ -17,8 +20,8 @@ type MainType = {
 const Main = ({children}:MainType):Object => {
   return (
     <div>
-      <Header/>
-      <section className={styles.content}>
+      <Header style={cx('header')}/>
+      <section className={cx('content')}>
         {children}
       </section>
     </div>
