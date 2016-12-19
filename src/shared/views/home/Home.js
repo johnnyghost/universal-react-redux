@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { document } from './constants';
+import createPage from 'utils/pages';
 
 /**
  * <Home />
  */
 class Home extends Component {
-
 
   /**
    * Render <Home/>
@@ -23,4 +24,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default createPage(document)(Home);

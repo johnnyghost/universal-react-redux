@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { document } from './constants';
+
+import createPage from 'utils/pages';
 
 /**
  * <Dashboard />
@@ -18,10 +21,9 @@ class Dashboard extends Component {
         <section>
           <h2>Dashboard</h2>
         </section>
-        { this.props.children }
       </div>
     );
   }
 }
 
-export default Dashboard;
+export default createPage(document)(Dashboard);

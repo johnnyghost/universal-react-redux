@@ -1,4 +1,14 @@
 import manifest from 'manifest';
+import Helmet from 'react-helmet';
+
+/**
+ * Get document info.
+ *
+ * @return {Object}
+ */
+const getDocumentInfo = ():Object => {
+  return Helmet.rewind();
+}
 
 /**
  * Return all the files from the manifest
@@ -64,6 +74,9 @@ const buildPage = (componentHTML:string):string => {
   return `
   <!doctype html>
     <head>
+      ${getDocumentInfo().title.toString()}
+      ${getDocumentInfo().meta.toString()}
+      ${getDocumentInfo().link.toString()}
       ${createStyleTags()}
       <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     </head>
@@ -72,6 +85,7 @@ const buildPage = (componentHTML:string):string => {
         <div>${componentHTML}<div>
       </div>
       ${createScriptTags()}
+      ${getDocumentInfo().script.toString()}
       </body>
     </html>`;
 };
