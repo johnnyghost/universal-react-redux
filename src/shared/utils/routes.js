@@ -16,7 +16,7 @@ const loadRoute = (cb:Function):Function => {
  * @param {Object} error The error object
  */
 const errorLoading = (error:Object) => {
-  throw new Error(`Error loading the view --  ${error.message}`);
+  throw new Error(`loading the view --  ${error.message}`);
 }
 
 export {
