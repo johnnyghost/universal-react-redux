@@ -1,5 +1,6 @@
 const document = {
-  title: 'home'
+  title: 'home',
+  meta:[{'name': 'description', 'content': 'Home page'}]
 }
 
 export {

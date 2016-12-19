@@ -17,6 +17,17 @@ type DocumentAssetsType = {
 }
 
 /**
+ * Default values
+ * @type {Object}
+ */
+const defaultDocumentInfo = {
+  title: 'Universal redux boilerplate',
+  meta: [
+    { property: 'og:site_name', content: 'Universal redux boilerplate' },
+  ]
+}
+
+/**
  * Create a page HOC.
  *
  * @param {Object} documentAssets The document object
@@ -26,6 +37,21 @@ const createPage = (documentAssets:DocumentAssetsType):Function => (WrappedCompo
   return class extends Component {
 
     /**
+     * [documentInfo description]
+     * @method documentInfo
+     * @return {[type]}     [description]
+     */
+    get documentInfo ():Object {
+      return Object.assign({}, defaultDocumentInfo, documentAssets, {
+        meta: documentAssets.meta && documentAssets.meta.concat(defaultDocumentInfo.meta),
+        link: documentAssets.link && documentAssets.link.concat(defaultDocumentInfo.link),
+        script: documentAssets.script && documentAssets.script.concat(defaultDocumentInfo.script),
+        noscript: documentAssets.noscript && documentAssets.noscript.concat(defaultDocumentInfo.noscript),
+        style: documentAssets.style && documentAssets.style.concat(defaultDocumentInfo.style),
+      });
+    }
+
+    /**
      * Render the Enhanced page.
      *
      * @return {JSXElement}
@@ -33,7 +59,7 @@ const createPage = (documentAssets:DocumentAssetsType):Function => (WrappedCompo
     render ():Object {
       return (
         <div>
-          <Helmet {...documentAssets} />
+          <Helmet {...this.documentInfo} />
           <WrappedComponent/>
         </div>
       )

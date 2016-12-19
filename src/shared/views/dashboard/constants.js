@@ -1,5 +1,5 @@
 const document = {
-  title: 'dashboard'
+  
 }
 
 export {

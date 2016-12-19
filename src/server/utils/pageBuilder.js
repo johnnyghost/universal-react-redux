@@ -70,24 +70,29 @@ const createStyleTags = ():string => {
  * @return {String}
  */
 const buildPage = (componentHTML:string):string => {
-
+  const {
+    title,
+    meta,
+    link,
+    script
+  } = getDocumentInfo();
   return `
   <!doctype html>
     <head>
-      ${getDocumentInfo().title.toString()}
-      ${getDocumentInfo().meta.toString()}
-      ${getDocumentInfo().link.toString()}
+      ${title.toString()}
+      ${meta.toString()}
+      ${link.toString()}
       ${createStyleTags()}
-      <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
     </head>
     <body>
       <div id="root">
         <div>${componentHTML}<div>
       </div>
       ${createScriptTags()}
-      ${getDocumentInfo().script.toString()}
-      </body>
-    </html>`;
+      ${script.toString()}
+    </body>
+  </html>`;
 };
 
 export {
