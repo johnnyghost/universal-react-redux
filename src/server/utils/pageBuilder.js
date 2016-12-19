@@ -2,6 +2,18 @@ import manifest from 'manifest';
 import Helmet from 'react-helmet';
 
 /**
+ * Main files, that the page
+ * needs to be rendered.
+ * The value is the key of the manifest
+ * file
+ * @type {Object}
+ */
+const MAIN_FILES = {
+  js: 'main.js',
+  css: 'main.css'
+}
+
+/**
  * Get document info.
  *
  * @return {Object}
@@ -11,54 +23,25 @@ const getDocumentInfo = ():Object => {
 }
 
 /**
- * Return all the files from the manifest
- * by type.
- *
- * @method getFileByType
- * @private
- *
- * @param {String} type The type of the file
- * @return {Array<String>} The scripts
- */
-const getFileByType = (type:string):Array<string> => {
-  return Object.keys(manifest).filter((key:string):boolean => {
-    return key.split('.').pop() === type;
-  });
-}
-
-/**
  * Create the script tags, for the page.
  *
- * @method createScriptTags
+ * @method createMainScriptTag
  * @private
  * @return {String}
  */
-const createScriptTags = ():string => {
-  const mapScripts = (key:string):string => {
-    return `<script src="${manifest[key]}"></script>`;
-  }
-
-  return getFileByType('js')
-    .map(mapScripts)
-    .reverse()
-    .join('');
+const createMainScriptTag = ():string => {
+  return `<script src="${manifest[MAIN_FILES.js]}"></script>`;
 };
 
 /**
  * Create the style tags, for the page.
  *
- * @method createStyleTags
+ * @method createMainStyleTag
  * @private
  * @return {String}
  */
-const createStyleTags = ():string => {
-  const mapStyles = (key:string):string => {
-    return `<link rel="stylesheet" href="${manifest[key]}">`;
-  }
-
-  return getFileByType('css')
-    .map(mapStyles)
-    .join('');
+const createMainStyleTag = ():string => {
+  return `<link rel="stylesheet" href="${manifest[MAIN_FILES.css]}" />`;
 };
 
 /**
@@ -82,14 +65,14 @@ const buildPage = (componentHTML:string):string => {
       ${title.toString()}
       ${meta.toString()}
       ${link.toString()}
-      ${createStyleTags()}
+      ${createMainStyleTag()}
       <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" />
     </head>
     <body>
       <div id="root">
-        <div>${componentHTML}<div>
+        <div>${componentHTML}</div>
       </div>
-      ${createScriptTags()}
+      ${createMainScriptTag()}
       ${script.toString()}
     </body>
   </html>`;

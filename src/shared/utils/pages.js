@@ -17,7 +17,7 @@ type DocumentAssetsType = {
 }
 
 /**
- * Default values
+ * Default values.
  * @type {Object}
  */
 const defaultDocumentInfo = {
@@ -43,11 +43,11 @@ const createPage = (documentAssets:DocumentAssetsType):Function => (WrappedCompo
      */
     get documentInfo ():Object {
       return Object.assign({}, defaultDocumentInfo, documentAssets, {
-        meta: documentAssets.meta && documentAssets.meta.concat(defaultDocumentInfo.meta),
-        link: documentAssets.link && documentAssets.link.concat(defaultDocumentInfo.link),
-        script: documentAssets.script && documentAssets.script.concat(defaultDocumentInfo.script),
-        noscript: documentAssets.noscript && documentAssets.noscript.concat(defaultDocumentInfo.noscript),
-        style: documentAssets.style && documentAssets.style.concat(defaultDocumentInfo.style),
+        meta: documentAssets.meta && documentAssets.meta.concat(defaultDocumentInfo.meta) || defaultDocumentInfo.meta,
+        link: documentAssets.link && documentAssets.link.concat(defaultDocumentInfo.link) || defaultDocumentInfo.link,
+        script: documentAssets.script && documentAssets.script.concat(defaultDocumentInfo.script) || defaultDocumentInfo.script,
+        noscript: documentAssets.noscript && documentAssets.noscript.concat(defaultDocumentInfo.noscript) || defaultDocumentInfo.noscript,
+        style: documentAssets.style && documentAssets.style.concat(defaultDocumentInfo.style) || defaultDocumentInfo.style
       });
     }
 
