@@ -55,14 +55,6 @@ module.exports = {
         loader: 'json-loader'
       },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: ['css?modules&importLoaders=1', 'postcss']
-        })
-
-      },
-      {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=application/font-woff&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
       }, {

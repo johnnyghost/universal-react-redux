@@ -4418,8 +4418,8 @@ public-encrypt@^4.0.0:
     randombytes "^2.0.1"
 
 pump@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/pump/-/pump-1.0.1.tgz#f1f1409fb9bd1085bbdb576b43b84ec4b5eadc1a"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/pump/-/pump-1.0.2.tgz#3b3ee6512f94f0e575538c17995f9f16990a5d51"
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"

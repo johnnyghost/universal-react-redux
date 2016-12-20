@@ -1,8 +1,9 @@
-const path           = require('path');
-const webpack        = require('webpack');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const commonConfig   = require('./../webpack.common.babel.js');
-const PATHS          = require('./../constants').PATHS;
+const path              = require('path');
+const webpack           = require('webpack');
+const ManifestPlugin    = require('webpack-manifest-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonConfig      = require('./../webpack.common.babel.js');
+const PATHS             = require('./../constants').PATHS;
 
 const prodClientConfig = {
   entry: [
@@ -16,8 +17,17 @@ const prodClientConfig = {
     chunkFilename: '[name].[chunkhash].js'
   },
   devtool: 'source-map',
-
+  module: {
+    loaders: commonConfig.module.loaders.concat({
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: ['css?modules&importLoaders=1', 'postcss']
+      })
+    })
+  },
   plugins: commonConfig.plugins.concat([
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
     new webpack.NoErrorsPlugin(),
     new ManifestPlugin(),
     new webpack.optimize.UglifyJsPlugin({

@@ -16,6 +16,12 @@ const devServerConfig = {
     libraryTarget: 'commonjs2'
   },
   devtool: 'cheap-module-eval-source-map',
+  module: {
+    loaders: commonConfig.module.loaders.concat({
+      test: /\.css$/,
+      loader: 'css/locals?modules&importLoaders=1!postcss-loader'
+    })
+  },
   plugins: commonConfig.plugins.concat([
     new ProgressBarPlugin(),
     new webpack.NoErrorsPlugin()

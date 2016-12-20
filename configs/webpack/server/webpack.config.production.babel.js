@@ -15,6 +15,12 @@ const prodConfig = {
     libraryTarget: 'commonjs2'
   },
   devtool: 'source-map',
+  module: {
+    loaders: commonConfig.module.loaders.concat({
+      test: /\.css$/,
+      loader: 'css/locals?modules&importLoaders=1!postcss-loader'
+    })
+  },
   plugins: commonConfig.plugins.concat([
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
