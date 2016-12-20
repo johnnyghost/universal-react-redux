@@ -1,10 +1,10 @@
-const path                = require('path');
-const webpack             = require('webpack');
-const ManifestPlugin      = require('webpack-manifest-plugin');
-const commonConfig        = require('./../webpack.common.babel.js');
-const PATHS               = require('./../constants').PATHS;
+const path           = require('path');
+const webpack        = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const commonConfig   = require('./../webpack.common.babel.js');
+const PATHS          = require('./../constants').PATHS;
 
-const devClientConfig = {
+const prodClientConfig = {
   entry: [
     'babel-polyfill',
     path.resolve(PATHS.SOURCE, 'client/index.js'),
@@ -37,4 +37,4 @@ const devClientConfig = {
   ])
 }
 
-module.exports = Object.assign(commonConfig, devClientConfig);
+module.exports = Object.assign(commonConfig, prodClientConfig);

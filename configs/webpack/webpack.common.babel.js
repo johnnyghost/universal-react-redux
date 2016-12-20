@@ -24,11 +24,11 @@ module.exports = {
       __CURRENT_ENV__: '\'' + (NODE_ENV) + '\''
     }),
     new webpack.LoaderOptionsPlugin({
+      test: /\.css$/,
       options: {
-        postcss: [
+        postcss: () => [
           require('postcss-import')({
-            addDependencyTo: webpack,
-            prefix: '_'
+            addDependencyTo: webpack
           }),
           require('precss'),
           require('autoprefixer')
@@ -58,7 +58,7 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: ['css?modules', 'postcss']
+          loader: ['css?modules&importLoaders=1', 'postcss']
         })
 
       },
