@@ -7,3 +7,4 @@ wip.
 ## Quick start
 
 
+## License
