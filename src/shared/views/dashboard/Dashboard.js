@@ -8,7 +8,6 @@ import createPage from 'utils/pages';
  */
 class Dashboard extends Component {
 
-
   /**
    * Render <Dashboard/>
    *
