@@ -6,7 +6,7 @@ import styles from './header.css';
 const cx = classNames.bind(styles);
 
 type HeaderType = {
-  style: string
+  style: ?string
 }
 
 /**
