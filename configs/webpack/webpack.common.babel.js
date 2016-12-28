@@ -47,7 +47,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader', 'eslint'],
+        loaders: ['babel?cacheDirectory', 'eslint'],
         exclude: /node_modules/
       },
       {
