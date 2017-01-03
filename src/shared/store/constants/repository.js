@@ -1,11 +1,9 @@
 import { createConstants } from 'store/utils';
 
-const catalogueConstants = createConstants(
-  'FETCH_CATALOGUE_REQUEST',
-  'FETCH_CATALOGUE_SUCCESS',
-  'SEARCH_CATALOGUE_REQUEST',
-  'SEARCH_CATALOGUE_SUCCESS',
+const githubConstants = createConstants(
+  'FETCH_REPOS_REQUEST',
+  'FETCH_REPOS_SUCCESS',
   'ERROR'
 );
 
-export default catalogueConstants;
+export default githubConstants;

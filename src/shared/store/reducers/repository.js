@@ -6,12 +6,12 @@ import { createReducer } from 'store/utils';
  * @type {Object}
  */
 const initialState = {
-  catalogue: [],
+  list: [],
   isLoading: false
 };
 
 /**
- * Fetch catalogue success
+ * Fetch Repos success
  *
  * @method
  *
@@ -20,16 +20,16 @@ const initialState = {
  *
  * @return {Object} The current state
  */
-const fetchCatalogueSuccess = (state:Object, data:Object):Object => {
+const fetchReposSuccess = (state:Object, data:Object):Object => {
   return {
     ...state,
-    catalogue: data,
+    list: data,
     isLoading: false
   };
 }
 
 /**
- * Fetch catalogue request
+ * Fetch Repos request
  *
  * @method
  *
@@ -37,15 +37,15 @@ const fetchCatalogueSuccess = (state:Object, data:Object):Object => {
  *
  * @return {Object} The current state
  */
-const fetchCatalogueRequest = (state:Object):Object => {
+const fetchReposRequest = (state:Object):Object => {
   return {
     ...state,
-    catalogue: [],
+    list: [],
     isLoading: true
   };
 }
 
 export default createReducer(initialState, {
-  [REPOSITORY_CONSTANTS.FETCH_CATALOGUE_REQUEST]: fetchCatalogueRequest,
-  [REPOSITORY_CONSTANTS.FETCH_CATALOGUE_SUCCESS]: fetchCatalogueSuccess
+  [REPOSITORY_CONSTANTS.FETCH_REPOS_REQUEST]: fetchReposRequest,
+  [REPOSITORY_CONSTANTS.FETCH_REPOS_SUCCESS]: fetchReposSuccess
 });

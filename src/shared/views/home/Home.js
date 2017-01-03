@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ReposListContainer } from 'containers';
 import { document } from './constants';
 import createPage from 'utils/pages';
 
@@ -18,6 +19,7 @@ class Home extends Component {
       <div>
         <section>
           <h2>Home</h2>
+          <ReposListContainer />
         </section>
       </div>
     );
