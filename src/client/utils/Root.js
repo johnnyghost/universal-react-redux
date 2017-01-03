@@ -14,7 +14,7 @@ const store = configureStore(initialState);
  * @return {JSXElement}
  */
 const Root = ():Object => {
-  
+
   return (
     <Provider store={store}>
       <Router history={browserHistory}>

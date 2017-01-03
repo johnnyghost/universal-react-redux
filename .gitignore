@@ -17,3 +17,9 @@ npm-debug.log*
 
 # Coverage directory
 coverage
+
+# configuration files
+
+src/shared/config/dev/github.js
+src/shared/config/prod/github.js
+src/shared/config/staging/github.js

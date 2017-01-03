@@ -7,7 +7,19 @@ wip.
 
 ## Quick start
 
+## Configuration
 
+### Github
+Create a github configuration file `github.js` for each environment folder.
+
+```
+const config = {
+  TOKEN: <your_github_token>
+};
+
+export default config;
+
+```
 ## License
 
 The MIT License (MIT)
