@@ -1,3 +1,4 @@
+import request from 'core/request';
 import { github } from 'config';
 
 /**
@@ -19,8 +20,7 @@ const githubService = {
    * @return {Promise<Array>} An array of repositories
    */
   getRepos():Promise {
-    return fetch(`https://api.github.com/user/repos?access_token=${TOKEN}`)
-      .then(successResponseHandler)
+    return request.get(`https://api.github.com/user/repos?access_token=${TOKEN}`);
   },
 
   /**
@@ -32,17 +32,8 @@ const githubService = {
    * @return {Promise<Array>} An array of github users
    */
   searchUser (user:?string):Promise {
-    return fetch(`https://api.github.com/search/users?q=${user}&access_token=${TOKEN}`)
-      .then(successResponseHandler)
+    return request.get(`https://api.github.com/search/users?q=${user}&access_token=${TOKEN}`);
   }
 }
-
-/**
- * Success response handler.
- *
- * @param {Object} response The response Object
- * @return {Object}
- */
-const successResponseHandler = ((response:Object):Object => response.json());
 
 export default githubService;
