@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouterContext } from 'react-router';
+import { Provider } from 'react-redux';
 
 /**
  * <Root />
@@ -9,7 +10,12 @@ import { RouterContext } from 'react-router';
  * @return {JSXElement}
  */
 const Root = (props:Object):Object => {
-  return <RouterContext {...props } />
+
+  return (
+    <Provider store={props.store}>
+      <RouterContext {...props} />
+    </Provider>
+  );
 }
 
 export default Root;

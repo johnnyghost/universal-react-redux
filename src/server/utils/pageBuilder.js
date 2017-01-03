@@ -50,15 +50,18 @@ const createMainStyleTag = ():string => {
  * @method buildPage
  *
  * @param  {String} componentHTML The component
+ * @param  {Object} store The store
  * @return {String}
  */
-const buildPage = (componentHTML:string):string => {
+const buildPage = (componentHTML:string, store:Object):string => {
   const {
     title,
     meta,
     link,
     script
   } = getDocumentInfo();
+  
+  const initialState = store.getState();
   return `
   <!doctype html>
     <head>
@@ -72,6 +75,7 @@ const buildPage = (componentHTML:string):string => {
       <div id="root">
         <div>${componentHTML}</div>
       </div>
+      <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}</script>
       ${createMainScriptTag()}
       ${script.toString()}
     </body>
