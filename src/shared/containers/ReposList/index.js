@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { repositoriesActionCreators }  from 'store/actions/';
-import { getReposName } from 'store/selectors/repository';
+import { RepositoryCardList } from 'components';
 
 /**
  * Repos list container type
@@ -10,7 +10,7 @@ import { getReposName } from 'store/selectors/repository';
  */
 type ReposListContainerType = {
   repositoriesActions: Object,
-  reposName: Array<string>
+  repos: Array<Object>
 };
 
 /**
@@ -36,10 +36,7 @@ class ReposListContainer extends Component {
 
     return (
       <div>
-        <div>ReposListContainer</div>
-        {this.props.reposName && this.props.reposName.map((name:string, index: number):Object => {
-          return <div key={index}>{ name }</div>
-        })}
+        <RepositoryCardList repos={this.props.repos} />
       </div>
     )
   }
@@ -54,7 +51,7 @@ class ReposListContainer extends Component {
  * @return {Object} and returns an object to be passed as props
  */
 const mapStateToProps = (state:Object):Object => ({
-  reposName: getReposName(state)
+  repos: state.repository.list
 });
 
 /**
