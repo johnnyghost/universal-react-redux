@@ -1,4 +1,4 @@
-import { GITHUB_TOKEN } from './../common/tokens';
+import { GITHUB_TOKEN } from './tokens';
 
 const config = {
   TOKEN: process.env.GITHUB_TOKEN || GITHUB_TOKEN
