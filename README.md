@@ -9,17 +9,14 @@ wip.
 
 ## Configuration
 
-### Github
-Create a github configuration file `github.js` for each environment folder.
+### Tokens
+Create a tokens file `tokens.js` on the common folder, follow the `token.sample.js` file.
 
 ```
-const config = {
-  TOKEN: <your_github_token>
-};
-
-export default config;
+export const GITHUB_TOKEN='<your_github_token>';
 
 ```
+
 ## License
 
 The MIT License (MIT)
