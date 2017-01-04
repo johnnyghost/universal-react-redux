@@ -7,6 +7,12 @@ import { github } from 'config';
 const { TOKEN } = github;
 
 /**
+ * Github base url
+ * @type {String}
+ */
+const BASE_URL = 'https://api.github.com';
+
+/**
  * Github service.
  * Abstraction of the github API.
  */
@@ -20,7 +26,7 @@ const githubService = {
    * @return {Promise<Array>} An array of repositories
    */
   getRepos():Promise {
-    return request.get(`https://api.github.com/user/repos?access_token=${TOKEN}`);
+    return request.get(`${BASE_URL}/user/repos?access_token=${TOKEN}`);
   },
 
   /**
@@ -32,7 +38,7 @@ const githubService = {
    * @return {Promise<Array>} An array of github users
    */
   searchUser (user:?string):Promise {
-    return request.get(`https://api.github.com/search/users?q=${user}&access_token=${TOKEN}`);
+    return request.get(`${BASE_URL}/search/users?q=${user}&access_token=${TOKEN}`);
   }
 }
 

@@ -1,5 +1,6 @@
 const config = {
-  TOKEN: process.env.GITHUB_TOKEN
+  TOKEN: process.env.GITHUB_TOKEN,
+  USER: 'johnnyghost'
 };
 
 if(__DEV__) {
