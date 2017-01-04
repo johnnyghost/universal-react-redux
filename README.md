@@ -14,7 +14,6 @@ Create a tokens file `tokens.js` on the common folder, follow the `token.sample.
 
 ```
 export const GITHUB_TOKEN='<your_github_token>';
-
 ```
 
 ## License
