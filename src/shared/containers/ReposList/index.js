@@ -5,14 +5,24 @@ import { repositoriesActionCreators }  from 'store/actions/';
 import { getReposName } from 'store/selectors/repository';
 
 /**
+ * Repos list container type
+ * @type {Object}
+ */
+type ReposListContainerType = {
+  repositoriesActions: Object,
+  reposName: Array<string>
+};
+
+/**
  * <ReposListContainer />
  *
  * @return {Object} the sideBar container
  */
 class ReposListContainer extends Component {
+  props: ReposListContainerType;
 
   /**
-   *
+   * Component will mount
    */
   componentWillMount() {
     this.props.repositoriesActions.fetchReposRequest();
