@@ -2,8 +2,7 @@
 
 # Universal react redux boilerplate
 
-wip.   
-
+[ description ]
 
 ## Quick start
 
