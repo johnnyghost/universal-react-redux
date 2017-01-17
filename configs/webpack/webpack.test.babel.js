@@ -1,4 +1,5 @@
-const webpack = require('webpack');
+const webpack      = require('webpack');
+const PATHS        = require('./constants').PATHS;
 const commonConfig = require('./webpack.common.babel.js');
 
 const testClientConfig = {
@@ -31,21 +32,22 @@ const testClientConfig = {
     ],
   },
 
-  plugins: [
-
+  plugins: commonConfig.plugins.concat([
     // TODO: Check this
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     })
-  ],
-
-  resolve: Object.assign(commonConfig.resolve, {
-    alias: Object.assign(commonConfig.resolve.alias, {
+  ]),
+  resolve: {
+    modules: [PATHS.SOURCE, PATHS.NODE_MODULES, `${PATHS.SOURCE}/shared`],
+    alias: {
+      config: `${PATHS.SOURCE}/shared/config/dev/index.js`,
+      manifest: `${PATHS.DIST}/manifest.json`,
       sinon: 'sinon/pkg/sinon'
-    })
-  }),
+    }
+  },
 
   node: {
     fs: 'empty',
