@@ -39,6 +39,16 @@ const githubService = {
    */
   searchUser (user:?string):Promise {
     return request.get(`${BASE_URL}/search/users?q=${user}&access_token=${TOKEN}`);
+  },
+  
+  /**
+   * Get issues of a user.
+   * 
+   * @param {Object} user User name
+   * @return {Promise<Array>} An array of issues
+   */
+  getIssues (user:?string):Promise {
+    return request.get(`${BASE_URL}/search/issues?q=assignee:${user}+is:open&access_token=${TOKEN}`);
   }
 }
 
