@@ -23,7 +23,7 @@ const prodConfig = {
   },
   plugins: commonConfig.plugins.concat([
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       children: true,
