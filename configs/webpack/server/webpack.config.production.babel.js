@@ -18,7 +18,7 @@ const prodConfig = {
   module: {
     loaders: commonConfig.module.loaders.concat({
       test: /\.css$/,
-      loader: 'css/locals?modules&importLoaders=1!postcss-loader'
+      loader: 'css-loader/locals?modules&importLoaders=1!postcss-loader'
     })
   },
   plugins: commonConfig.plugins.concat([

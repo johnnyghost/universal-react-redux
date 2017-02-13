@@ -22,14 +22,13 @@ const devClientConfig = {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
-        loader: ['css?modules&importLoaders=1', 'postcss']
+        loader: ['css-loader?modules&importLoaders=1', 'postcss-loader']
       })
     })
   },
   plugins: commonConfig.plugins.concat([
     new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
     new ProgressBarPlugin(),
-    new webpack.NoErrorsPlugin(),
     new ManifestPlugin()
   ])
 }

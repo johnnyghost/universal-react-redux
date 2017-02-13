@@ -47,7 +47,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel?cacheDirectory', 'eslint'],
+        loaders: ['babel-loader?cacheDirectory', 'eslint-loader'],
         exclude: /node_modules/
       },
       {
@@ -56,22 +56,22 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/octet-stream&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
+        loader: 'url-loader?limit=10000&mimetype=application/octet-stream&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/vnd.ms-fontobject&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
+        loader: 'url-loader?limit=10000&mimetype=application/vnd.ms-fontobject&prefix=fonts&name=app/assets/fonts/[name]-[hash:10].[ext]'
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml&prefix=fonts&name=app/assets/svg/[name]-[hash:10].[ext]'
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml&prefix=fonts&name=app/assets/svg/[name]-[hash:10].[ext]'
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex&name=app/assets/png/[hash].[ext]',
-          'image-webpack?bypassOnDebug&interlaced=false'
+          'file-loader?hash=sha512&digest=hex&name=app/assets/png/[hash].[ext]',
+          'image-webpack-loader?bypassOnDebug&interlaced=false'
         ]
       },
     ]
